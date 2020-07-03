@@ -163,3 +163,51 @@ backend hass-backend
  - GUI Config
  - Auto SSL
  - Easiest option for non-techies
+
+# Devices
+
+# Cameras
+
+# Cameras - Models
+
+ - ONVIF - Standard profile that means a camera can likely be integrated
+ - POE makes things easier
+
+# Cameras - Config
+
+ Stream device in the `configuration.yaml` file
+ ```
+ stream:
+   stream_source: rtsp://my.camera:554
+ ```
+
+# Cameras - Dashbaord
+
+ - Once configured, can add camera feed in GUI
+
+# Cameras - Motion Detection
+
+ - Once configured, you can use the `enable_motion_detection` service on the camera
+ - This will emit events when motion starts and ends on the camera
+
+# Cameras - Doods
+
+ - Distributed outside object detection service
+ - Installed via a HACS plugin
+ - Detects / categorizes obects in a video stream
+ - Can react to events like "when a car is seen"
+
+# Cameras - Facebox
+
+ - Can perform face detection and recognition
+ - Can emit events when certain faces are seen
+
+# Cameras - Recording
+
+ - HA is not a NVR
+ - Can use third party software since network streams aren't unique
+ - Motion - Simplest option
+ - Zoneminder - More heavyweight, more features
+
+
+
