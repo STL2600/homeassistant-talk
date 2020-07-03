@@ -292,4 +292,58 @@ backend hass-backend
    - Ikea
  - Can be more difficult to integrate with legacy switches
 
+# Getting Creative
 
+# Energy Saver
+
+## Conditions
+
+ - When all people have left the house
+ - When no motion is detected
+
+## Actions
+
+ - Turn off all lights
+ - Turn off TVs
+
+# Smart Thermostat
+
+# Kid Friendly Lighting
+
+## Conditions
+
+ - At Bedtime
+
+## Actions
+
+ - Set max light level to 20%
+
+# Bedtime Routine
+
+# Wakeup Routine
+
+# Fake Being Home
+
+# Automatic Lights
+
+## Conditions
+
+ - When motion is detected in area
+ - And the sun is down
+
+## Actions
+
+ - Turn on lights to 10%
+
+# Auto Unlock Door
+
+## Conditions
+
+ - When prescense detection shows you at home
+ - And your face is seen on doorbel camera
+
+## Actions
+
+ - Unlock front door
+
+# Internet Radio Station
