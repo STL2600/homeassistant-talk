@@ -4,18 +4,18 @@
  - HomeAssistant Core
  - HomeAssistant Supervised
 
-# Installation - HomeAssistant
+## Installation - HomeAssistant
 
  - Comes as a whole operating system installation
  - Can be installed on a VM, Pi, or other bare metal machine
  - Is the "blessed" installation mode
 
-# Installation - Core
+## Installation - Core
 
  - A single docker container with _just_ the core of HomeAssistant
  - More difficult to install plugins, but basic functionality works
 
-# Installation - Supervised
+## Installation - Supervised
 
  - Install the full package on your own OS
  - Supports plugins and other packages
@@ -28,28 +28,28 @@
  - VPN
  - Reverse Proxy
 
-# Exposing HA - Don't
+## Exposing HA - Don't
 
  - Just automations
  - Local access
 
-# Exposing HA - Nabu Casa
+## Exposing HA - Nabu Casa
 
  - Easy to setup
  - Support HA Development
 
-# Exposing HA - VPN
+## Exposing HA - VPN
 
  - You might already have it set up
  - Probably most secure remote access
 
-# Exposing HA - Reverse Proxy
+## Exposing HA - Reverse Proxy
 
  - NGINX
  - HAProxy
  - Traefik
 
-# Exposing HA - NGINX
+## Exposing HA - NGINX
 
 ```
 worker_processes  1;
@@ -103,7 +103,7 @@ http {
 
 ```
 
-# Exposing HA - HAProxy
+## Exposing HA - HAProxy
 
 ```
 global
@@ -158,7 +158,7 @@ backend hass-backend
 	http-request add-header X-Forwarded-Port 443
 ```
 
-# Exposing HA - Traefik
+## Exposing HA - Traefik
 
  - GUI Config
  - Auto SSL
@@ -166,14 +166,14 @@ backend hass-backend
 
 # Devices
 
-# Cameras
+## Cameras
 
-# Cameras - Models
+## Cameras - Models
 
  - ONVIF - Standard profile that means a camera can likely be integrated
  - POE makes things easier
 
-# Cameras - Config
+## Cameras - Config
 
  Stream device in the `configuration.yaml` file
  ```
@@ -181,28 +181,28 @@ backend hass-backend
    stream_source: rtsp://my.camera:554
  ```
 
-# Cameras - Dashbaord
+## Cameras - Dashbaord
 
  - Once configured, can add camera feed in GUI
 
-# Cameras - Motion Detection
+## Cameras - Motion Detection
 
  - Once configured, you can use the `enable_motion_detection` service on the camera
  - This will emit events when motion starts and ends on the camera
 
-# Cameras - Doods
+## Cameras - Doods
 
  - Distributed outside object detection service
  - Installed via a HACS plugin
  - Detects / categorizes obects in a video stream
  - Can react to events like "when a car is seen"
 
-# Cameras - Facebox
+## Cameras - Facebox
 
  - Can perform face detection and recognition
  - Can emit events when certain faces are seen
 
-# Cameras - Recording
+## Cameras - Recording
 
  - HA is not a NVR
  - Can use third party software since network streams aren't unique
