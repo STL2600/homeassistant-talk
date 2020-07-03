@@ -545,9 +545,57 @@ sensor:
 
 # Bedtime Routine
 
+## Triggers
+
+  - On bedroom motion sensor
+
+## Conditions
+
+  - After 10:00 PM
+  - Phone state is Charging
+
+## Actions
+
+  - Active Bedtime Scene
+    - Turn off all lights
+    - Mute Smart Speakers
+    - Lowers Thermostat
+    - Run Script that turns off the TV
+
 # Wakeup Routine
 
+## Triggers
+
+  - At 6:00 AM
+
+## Conditions
+
+ - Checks if it's a Weekday
+
+## Actions
+
+  - Increase Thermostat
+  - Delay 50 Minutes
+  - Activate Smart Plug on Coffee Pot
+  - Delay 10 Minutes
+  - Activate Wake-Up Scene
+    - Playlist through Smart Speakers
+    - Turn on Bedroom, Bathroom, and Kitchen Lights
+
 # Fake Being Home
+
+Go Full "Home Alone"...
+
+## Triggers
+
+  - On outdoor motion sensor or camera.
+
+## Actions
+
+  - Call Script to turn TV on
+  - Play a movie on media player
+  - Turn on lights
+  - Start robot vacuum with cardboard cutout
 
 # Automatic Lights
 
@@ -572,3 +620,9 @@ sensor:
  - Unlock front door
 
 # Internet Radio Station
+
+ - Components
+   - Mopidy or another MPD server
+   - Icecast Server
+   - Playlists are schedule with HA Automations
+
