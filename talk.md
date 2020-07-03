@@ -292,6 +292,231 @@ backend hass-backend
    - Ikea
  - Can be more difficult to integrate with legacy switches
 
+# Alerting
+
+  - Audible Alerts
+  - Visual
+  - Notifications
+
+## Audible Alerts
+
+  - Roll your own smart speakers
+  - HA integrates with pretty much any media player platform
+
+## Audible Alerts - DIY Smart Speakers
+
+  - Snapcast with Raspberry Pi's is just one option
+  - Allows you to logically group speakers
+  - Switch between audio streams
+      - Play alarm audio
+      - Text to Speech message
+
+## Audible Alerts - Media Players
+
+  - If the player accepts streams, do the same as Snapcast
+  - Or you can pull a "Kevin McCallister"
+
+## Visual Alerts
+
+  - Smart Lighting
+  - Media Players
+
+## Visual Alerts - Smart Lights
+
+  - Easiest option is to blinking patterns
+  - Add a smart plug to a strobe or siren light
+  - Multi-color LED strips
+
+## Visual Alerts - Media Players
+
+  - Cast a camera stream as an alert
+  - Play a pre-recorded video
+  - HA can send notifications to some players, like Kodi
+
+## Notifications
+
+  - HA has dedicated functions for notifications
+  - Allows for alerts when not at home
+
+## Notifications
+
+  - Various Messaging Clients
+  - SMS Text Messages
+  - HA Companion App
+
+## Notifications - Messaging Clients
+
+  - Texting clients like Facebook, Hangouts, Telegram
+  - Groupware like Slack, MS Teams, Matrix
+  - Twitter
+  - Signal!
+
+## Notifications - SMS Texting
+
+  - Service provided, like Twilio
+  - GSM-Modem
+
+## Notifications - SMS Texting
+
+  - GSM-Modem
+    - Cheap Burner Phone
+    - Out-of-Band
+
+## Notifications - HA App
+
+  - Official Companion App for iOS and Android
+  - Direct to your instance. No third party services.
+
+## HA and Your Network
+
+  - Leveraging HA as a makshift IDS
+    - Integration to Cisco, Ubiquiti, and other hardware
+    - Fail2Ban
+    - Shodan
+    - HaveIBeenPwned
+    - Pretty much anything else...
+
+## HA Networking - Router Integration
+
+  - Can be used to detect new devices on your network
+  - OpenWRT and ubus as an example
+
+## HA Networking - Router Integration
+
+Configure by adding to `configuration.yaml`
+```
+device_tracker:
+  - platform: ubus
+    host: ROUTER_IP_ADDRESS
+    username: YOUR_ADMIN_USERNAME
+    password: !secret openwrt_password
+    new_device_defaults:
+      track_new_devices: true
+```
+
+## HA Networking - Router Integration
+
+Create `known_devices.yaml` list:
+```
+devicename:
+  name: Friendly Name
+  mac: EA:AA:55:E7:C6:94
+  picture: https://www.home-assistant.io/images/favicon-192x192.png
+  track: true
+```
+
+## HA Networking - Router Integration
+
+```
+- id: '1593583785160'
+  alias: New Device Detected Automation
+  description: 'Send Notification when DHCP issues a new IP'
+  trigger:
+  - entity_id: device_tracker.ubus
+    platform: state
+  condition: []
+  action:
+  - data:
+      message: A new device has connected to your network
+    service: notify.mobile_app_pixel_3
+```
+
+## HA Networking - Fail2Ban
+
+  - Allows you to import IPs banned by fail2ban
+
+## HA Networking - Fail2Ban
+
+Setup by adding to `configuration.yaml`
+
+```
+sensor:
+  - platform: fail2ban
+    jails:
+      - ssh-iptables
+```
+
+## HA Networking - Fail2Ban
+
+```
+- id: '1593583785160'
+  alias: Fail2Ban Automation
+  description: 'Send Notification on Fail2Ban'
+  trigger:
+  - entity_id: sensor.fail2ban_sensor
+    platform: state
+  condition: []
+  action:
+  - data:
+      message: Fail2Ban has been triggered
+    service: notify.mobile_app_pixel_3
+``` 
+
+## HA Networking - Shodan
+
+  - Get alerts based on any Shodan query
+  - Use to be notified of open ports on the Internet
+
+## HA Networking - Shodan
+
+Setup by adding to `configuration.yaml`
+
+```
+sensor:
+  - platform: shodan
+    api_key: !secret shodan_key
+    query: 'net:IP_ADDRESS'
+```
+
+## HA Networking - Shodan
+
+```
+- id: '1593583785160'
+  alias: Shodan Automation
+  description: 'Send Notification from Shodan'
+  trigger:
+  - entity_id: sensor.shodan_sensor
+    platform: state
+  condition: []
+  action:
+  - data:
+      message: Shodan reports additional ports exposed on your network
+    service: notify.mobile_app_pixel_3
+```
+
+## HA Networking - HaveIBeenPwned
+
+  - Get alerts on email addresses involved in breaches
+  - Can track multiple email addresses
+  - Not free.  $3.50 a month.
+
+## HA Networking - HaveIBeenPwned
+
+Setup by adding to `configuration.yaml`
+```
+sensor:
+  - platform: haveibeenpwned
+    email:
+      - root@example.com
+    api_key: !secret haveibeenpwned-api
+```
+
+## HA Networking - HaveIBeenPwned
+```
+- id: '1593583449893'
+  alias: HaveIBeenPwned - Automation
+  description: ''
+  trigger:
+  - entity_id: sensor.breaches_root_example_com
+    platform: state
+  condition: []
+  action:
+  - data:
+      message: HaveIBeenPwn reports a breach for root@example.com
+    service: notify.mobile_app_pixel_3
+```
+
+
 # Getting Creative
 
 # Energy Saver
