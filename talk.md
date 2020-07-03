@@ -164,9 +164,11 @@ backend hass-backend
  - Auto SSL
  - Easiest option for non-techies
 
+# Toolbox
+
 # Devices
 
-## Cameras
+# Cameras
 
 ## Cameras - Models
 
@@ -209,5 +211,85 @@ backend hass-backend
  - Motion - Simplest option
  - Zoneminder - More heavyweight, more features
 
+
+# Door / Window Sensors
+
+## ZWave / Zigbee
+
+ - Lots of good options
+ - Easy to setup
+ - Long battery life
+ - Usually other sesonrs built in
+
+## Hardwired
+
+ - Can use RPi GPIO pins if running on pi
+ - ESP MQTT Bridge
+
+## Events
+
+ - Emit on open and close
+ - Battery level
+
+## Models
+
+ https://www.amazon.com/Aeotec-Window-Contact-sensors-Battery/dp/B07PDDX3K6/ref=sr_1_9?dchild=1&keywords=zwave+door+sensor&qid=1593566140&sr=8-9
+
+# Motion Sensors
+
+## ZWave / Zigbee
+
+ - Lots of good options
+ - Easy to setup
+ - Long battery life
+ - Usually other sesonrs built in
+
+## Cameras
+
+ - Multi-purpose
+ - Privacy issues
+
+## Events
+
+ - Emit events on motion
+ - Security alarms
+ - Lighting
+
+## Models
+
+ https://www.amazon.com/Inovelli-Temperature-SmartThings-Encryption-SmartStart/dp/B07YCWRCPH/ref=sr_1_6?dchild=1&keywords=zwave+motion+sensor&qid=1593565519&sr=8-6
+
+# Door Locks
+
+## ZWave / Zigbee
+
+ - Private network
+ - Lower power usage
+
+## WiFi
+
+ - Security issues
+ - Higher Power Usage
+ 
+## Bluetooth
+
+ - Security issues
+ - App controlled, harder to integrate
+
+# Switches / Lights
+
+## Smart Switches
+
+ - Prefer ZWave / Zigbee
+ - Prefer switches to bulbs
+
+ https://www.amazon.com/Inovelli-Repeater-Technology-Indicator-SmartStart/dp/B07RYMSH6Q/ref=pd_bxgy_2/143-6128294-1367931?_encoding=UTF8&pd_rd_i=B07RYMSH6Q&pd_rd_r=88aa62f7-4099-468c-b43d-1f5c7c8112b8&pd_rd_w=Xh27R&pd_rd_wg=HO0Re&pf_rd_p=4e3f7fc3-00c8-46a6-a4db-8457e6319578&pf_rd_r=Z9RH0DS7G665AWM2FKHH&psc=1&refRID=Z9RH0DS7G665AWM2FKHH
+
+## Smart Bulbs
+
+ - Lots of options
+   - Hue
+   - Ikea
+ - Can be more difficult to integrate with legacy switches
 
 
