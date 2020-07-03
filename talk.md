@@ -1,3 +1,7 @@
+% STL2600 + DC314
+% Bob and Joe Goof Around With Home Assistant
+% July 3, 2020
+
 # Installation Methods
 
  - HomeAssistant
@@ -292,13 +296,15 @@ backend hass-backend
    - Ikea
  - Can be more difficult to integrate with legacy switches
 
-# Alerting
+# Alerting & Notifications
+
+## Alerting - Types
 
   - Audible Alerts
   - Visual
   - Notifications
 
-## Audible Alerts
+# Audible Alerts
 
   - Roll your own smart speakers
   - HA integrates with pretty much any media player platform
@@ -316,7 +322,7 @@ backend hass-backend
   - If the player accepts streams, do the same as Snapcast
   - Or you can pull a "Kevin McCallister"
 
-## Visual Alerts
+# Visual Alerts
 
   - Smart Lighting
   - Media Players
@@ -333,7 +339,7 @@ backend hass-backend
   - Play a pre-recorded video
   - HA can send notifications to some players, like Kodi
 
-## Notifications
+# Notifications
 
   - HA has dedicated functions for notifications
   - Allows for alerts when not at home
@@ -367,7 +373,7 @@ backend hass-backend
   - Official Companion App for iOS and Android
   - Direct to your instance. No third party services.
 
-## HA and Your Network
+# HA and Your Network
 
   - Leveraging HA as a makshift IDS
     - Integration to Cisco, Ubiquiti, and other hardware
@@ -376,7 +382,7 @@ backend hass-backend
     - HaveIBeenPwned
     - Pretty much anything else...
 
-## HA Networking - Router Integration
+# HA Networking - Router Integration
 
   - Can be used to detect new devices on your network
   - OpenWRT and ubus as an example
@@ -421,7 +427,7 @@ devicename:
     service: notify.mobile_app_pixel_3
 ```
 
-## HA Networking - Fail2Ban
+# HA Networking - Fail2Ban
 
   - Allows you to import IPs banned by fail2ban
 
@@ -452,7 +458,7 @@ sensor:
     service: notify.mobile_app_pixel_3
 ``` 
 
-## HA Networking - Shodan
+# HA Networking - Shodan
 
   - Get alerts based on any Shodan query
   - Use to be notified of open ports on the Internet
@@ -484,7 +490,7 @@ sensor:
     service: notify.mobile_app_pixel_3
 ```
 
-## HA Networking - HaveIBeenPwned
+# HA Networking - HaveIBeenPwned
 
   - Get alerts on email addresses involved in breaches
   - Can track multiple email addresses
@@ -516,6 +522,14 @@ sensor:
     service: notify.mobile_app_pixel_3
 ```
 
+# HA Networking - Everything Else
+
+  - HA has integrations for
+    - HTTP requests
+    - REST APIs
+    - Shell scripting
+
+So if it doesn't exist, you can probably hack it together
 
 # Getting Creative
 
